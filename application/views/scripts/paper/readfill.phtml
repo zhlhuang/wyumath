@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div style="width: 800; margin-left: 150px;">
+<div align="center" style="background-color: red;" >
+<h1>这里是《<a href="./showpaper?paperid=<?=$this->paper["pid"] ?>"><?=$this->paper['title']; ?></a>》试卷题目挑选</h1>
+</div>
+</div>
+<div style="width: 800; margin-left: 150px;">
+<ul style="list-style: none; border: 1px solid red;">
+<form action="readfill"  method="post">
+<table>
+<tr>
+<td><input type="hidden" name="qtype"  value="2">所属课本：<select name="book" id="book">
+<option value="">--选择课本--</option>
+</select></td>
+<td>所属章节：<select name="chapter" id="chapter">
+<option value="">--选择章节--</option></select></td>
+<td>题目难度：<select id="class" name="class">
+<option value="">不限</option>
+<option value="1">困难</option>
+<option value="2">中等</option>
+<option value="3">简单</option>
+</select></td><td><a href="./read">选择题</a></td>
+<td><input type="submit" value="查询"></td>
+</tr>
+</table>
+</form>  
+</ul>
+<form action="addpaper" method="post" name="paper" >
+<input type="hidden" name="paperid" value="<?=$this->paper['pid']; ?>">
+<?php
+$i=1;
+ foreach ($this->res1 as $value){?>
+<ul style="list-style: none; border: 1px solid red;">
+<li><input type="checkbox"  name="id[]"  value="<?=$value['id'] ?>"><?=$i++?>题目:<?=$value['content'] ?></li>
+
+</ul>
+<?php
+ }?>
+ <div><?=$this->tip; ?><p align="right"><input type="submit"  value="提交题目"></p></div>
+  </form>
+</div>
+</body>
+<script type="text/javascript"  charset="gbk"  src="../js/Ajax.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showbook.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showchapter.js"></script>
+</html>

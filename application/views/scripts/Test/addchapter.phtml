@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<div style="width: 640px;height: 480px;">
+<h1 align="center">添加所属章节</h1>
+<div align="center">
+<form action="./addchapterchk" method="post">
+<table>
+<tr>
+<td>所属课本</td><td ><select name="book" id="book">
+<?php foreach ($this->resbook as $value){ ?>
+<option value="<?=$value['bookid'];?>"><?=$value['bookname'];?></option>
+<?php }?>
+</select><input type="button" value="增加课本" onclick="addbook()"></td>
+</tr>
+<tr><td>章节名称</td><td><input name="chaptername" id="chaptername"></td></tr>
+<tr><td><input type="submit"  value="提交"></td><td></td></tr>
+</table>
+</form>
+</div>
+</div>
+</html>

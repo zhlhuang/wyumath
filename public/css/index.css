@@ -1,0 +1,32 @@
+@CHARSET "gb2312";
+body{
+	margin: 0px;
+}
+.leftmenu{
+	border:1px solid red;
+	width: 20%;
+	height: 470px;
+	float: left;
+}
+.right{
+	border: 1px solid red;
+	width:79%;
+	height: 470px;
+	float: left;
+}
+.iframe{
+height: 100%;
+width: 99.99%;
+	float: left;
+}
+.frame{
+	width: 100%;
+	float: left;
+}
+.ul{
+	list-style: none;
+	padding: 20px;
+}
+.ul li{
+	margin-top: 20px;
+}

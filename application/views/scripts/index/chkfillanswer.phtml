@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div>
+
+<?php
+$i=1;
+ foreach ($this->res1 as $value){?>
+<ul style="list-style: none;">
+<li><?=$i++?>题目:<?=$value['content'] ?>
+<input type="hidden"  name="id[]?>"  value="<?=$value['id'] ?>"></li><li>
+你的答案是：
+<?php 
+foreach ($this->res2[$value['id']] as $val){
+?>
+<?=$val; ?>&nbsp;&nbsp;&nbsp;
+<?php }?>
+</li>
+</ul>
+<?php
+ }?>
+</div>
+</body>
+</html>

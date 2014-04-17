@@ -1,0 +1,19 @@
+<html>
+<head>
+<meta charset="gb2312">
+<title>发布的试卷</title>
+</head>
+<body>
+<div align="center" style="background-color: red;" >
+<h1>这里是试卷查看系统</h1>
+</div>
+<div align="center">
+<table border="1">
+<tr><td>试卷标题</td><td>操作</td></tr>
+<?php foreach ($this->res as $value){?>
+<tr><td><a href="showpaper?paperid=<?=$value['pid'];?>"><?=$value['title'] ?></a></td><td><a href="addsession?paperid=<?=$value['pid'];?>">编辑</a>   <a href="./delepaper?paperid=<?=$value['pid'];?>">删除</a></td></tr>
+<?php }?>
+</table>
+</div>
+</body>
+</html>

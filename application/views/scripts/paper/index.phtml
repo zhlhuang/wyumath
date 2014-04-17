@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+
+<div align="center" style="background-color: red;" >
+<h1>这里是试卷发布系统</h1><a href="./show"><font size="3" >查看已有试卷</font></a>
+</div>
+<div align="center"  style="margin-top: 10px;">
+<form action="../paper/chk" method="post" id="form1" name="form1">
+<table>
+<!-- 下面就是设计到js的关联选项了  -->
+<tr>
+<td>所属课本</td><td ><select name="book" id="book">
+<option value="">--不限课本--</option>
+</select><input type="button" value="增加课本" onclick="addbook()">
+</td>
+</tr>
+<tr>
+<td>所属章节</td><td><select name="chapter" id="chapter">
+<option value="">--不限章节--</option>
+</select>
+<input type="button" value="增加章节"  onclick="addchapter()"></td>
+</tr>
+<tr>
+<td>题目难度</td><td>困难 <input type="radio" name="class" value="1">
+中等 <input type="radio" name="class" value="2">
+简单 <input type="radio" name="class" value="3"></td>
+</tr>
+<tr><td>题目内容:</td><td><input name="title" id="title"></td>
+</tr>
+<tr>
+<td><input type="submit" value="提交" id="sub"  ></td><td><input type="reset" value="重写"></td>
+</tr>
+
+</table>
+</form>
+</div>
+<script type="text/javascript"  charset="gbk"  src="../js/Ajax.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showbook.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showchapter.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/need.js"></script>
+<script type="text/javascript">
+title=document.getElementById("title");
+title.onblur=function(){
+	if(title.value.replace(/(^\s*)|(\s*$)/g,"")==''){
+		alert("标题不能为空");
+		document.getElementById("sub").disabled="disabled";
+	}else{
+		document.getElementById("sub").disabled="";
+	}
+}
+</script>
+</body>
+</html>

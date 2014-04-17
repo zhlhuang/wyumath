@@ -1,0 +1,18 @@
+<html>
+<HEAD>
+<META charset="gb2312"/>
+<TITLE>信息提示</TITLE>
+</HEAD>
+<BODY>
+<SCRIPT type="text/javascript">
+alert("<?=$this->news;?>");
+<?php if(empty($this->toback)){?>
+history.back();
+<?php
+}
+else{?>
+window.location.href="<?=$this->toback;?>";
+<?php }?>
+</SCRIPT>
+</BODY>
+</html>

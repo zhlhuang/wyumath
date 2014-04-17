@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<form action="./chkpaper"  method="post"  id="paperform" >
+<div style="width: 800; margin-left: 300px;">
+<div align="center" style="background-color: red;" >
+<h1>这里是《<?=$this->paper['title']; ?>》试卷题目</h1><font size="3" >欢迎你<?=$this->member["uname"];?></font>
+</div>
+</div>
+<div style="width: 800; margin-left: 300px; ">
+选择题：
+<div>
+<?php
+$i=1;
+ foreach ($this->selectres as $key=> $value){?>
+<ul style="list-style: none; border: 1px solid red;">
+<li><?=$i++?>题目:<?=$value['content'] ?><input type="hidden"  name="id[]"  value="<?=$value['id'] ?>"></li>
+<li><p>A:<input type="radio" name="answer<?=$value['id'] ?>" value="A"><?=$value['answerA'] ?>&nbsp;
+B:<input type="radio"  name="answer<?=$value['id'] ?>" value="B"><?=$value['answerB'] ?></p></li>
+<li><p>
+C:<input type="radio" name="answer<?=$value['id'] ?>" value="C"><?=$value['answerC'] ?>&nbsp;
+D:<input type="radio"  name="answer<?=$value['id'] ?>" value="D"><?=$value['answerD'] ?></p></li>
+</ul>
+<?php }?>
+</div>
+<div>
+填空题：
+<?php
+$i=1;
+ foreach ($this->fillres as $value){?>
+<ul style="list-style: none; border: 1px solid red;">
+<li><?=$i++?>题目:<?=$value['content'] ?></li><input type="hidden"  name="id[]"  value="<?=$value['id'] ?>">
+</ul>
+<?php }?>
+</div>
+</div>
+<div style="width: 800; margin-left: 300px; ">
+<input type="hidden" name="paperid" value="<?=$this->paper['pid']; ?>">
+<p><input type="submit" value="提交"></p>
+</div>
+</form>
+<script type="text/javascript"  charset="gbk"  src="../js/Ajax.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/deleqid.js"></script>
+</body>
+</html>

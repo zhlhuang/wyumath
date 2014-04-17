@@ -1,0 +1,19 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div>
+<form action="./chkupdatafill"  method="post"  id="answerform" >
+<?php
+$i=1;
+ foreach ($this->res as $value){?>
+<ul style="list-style: none;">
+<li><?=$i++?>题目:<?=$value['content'] ?><input type="hidden"  name="id"  value="<?=$value['id'] ?>"></li>
+</ul>
+<?php }?>
+<input type="submit"  onclick="return confirm('确认修改？');"  value="提交">
+</form>
+</div>
+</body>
+</html>

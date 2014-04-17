@@ -1,0 +1,22 @@
+document.getElementById("iframe1").onload=function(){
+iframe1=document.getElementById("iframe1").contentDocument;
+iframe1.getElementById("butt").onclick=chk;
+function chk(){
+	 typeid=iframe1.getElementById("qtype").value;
+	 chapterid=iframe1.getElementById("chapter").value;
+	 classname=iframe1.getElementById("class").value;
+	 book=iframe1.getElementById("book").value;
+	url="../index/show";
+	get='?';
+	if(typeid!=null)
+		get+="qtype="+typeid;
+	if(chapterid!=null)
+		get+="&chapterid="+chapterid;
+	if(classname!=null)
+		get+="&class="+classname;
+	if(book!=null)
+		get+="&book="+book;
+	alert(url+get);
+	document.getElementById("iframe").src=url+get;
+  };
+};

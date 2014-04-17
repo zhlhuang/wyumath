@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div style="width: 800; margin-left: 150px;">
+<div align="center" style="background-color: red;" >
+<h1>这里是《<?=$this->paper['title']; ?>》试卷题目</h1><a href="./show"><font size="3" >重新选择试卷</font></a>
+</div>
+</div>
+<div style="width: 800; margin-left: 150px; ">
+
+选择题：<a href="./read">添加</a>
+
+<div>
+<?php
+$i=1;
+ foreach ($this->selectres as $key=> $value){?>
+<ul style="list-style: none; border: 1px solid red;">
+<li><?=$i++?>题目:<?=$value['content']; ?></li>
+<li>A:<?=$value['answerA'] ?>&nbsp;&nbsp;
+B:<?=$value['answerB'] ?>&nbsp;&nbsp;
+C:<?=$value['answerC'] ?>&nbsp;&nbsp;
+D:<?=$value['answerD'] ?></li>
+<p align="right" >
+<a  style="cursor:pointer" onclick="deleqid(<?=$value["id"]; ?>,<?=$this->paper["pid"] ?>);" id="deleqid<?=$value["id"];?>">从列表中删除</a>&nbsp;
+</p>
+</ul>
+<?php }?>
+</div>
+<div>
+填空题：<a href="./readfill">添加</a>
+<?php
+$i=1;
+ foreach ($this->fillres as $value){?>
+<ul style="list-style: none; border: 1px solid red;">
+<li><?=$i++?>题目:<?=$value['content'] ?></li>
+<p align="right" >
+<a  style="cursor:pointer" onclick="deleqid(<?=$value['id']; ?>,<?=$this->paper["pid"] ?>);" id="deleqid<?=$value["id"];?>">从列表中删除</a>&nbsp;
+</p>
+</ul>
+<?php }?>
+<form action="./submitpaper"  method="post"  id="paperform" >
+<input type="hidden" name="paperid" value="<?=$this->paper['pid']; ?>">
+<p><input type="submit" value="发布"></p>
+</form>
+</div>
+</div>
+<script type="text/javascript"  charset="gbk"  src="../js/Ajax.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/deleqid.js"></script>
+</body>
+</html>

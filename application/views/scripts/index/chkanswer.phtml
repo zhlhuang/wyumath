@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div>
+
+<?php
+$i=1;
+ foreach ($this->res1 as $value){?>
+<ul style="list-style: none;">
+<li><?=$i++?>题目:<?=$value['content'] ?><input type="hidden"  name="id[]?>"  value="<?=$value['id'] ?>"></li>
+<li><p>A:<?=$value['answerA'] ?>&nbsp;
+B:<?=$value['answerB'] ?></p></li>
+<li><p>
+C:<?=$value['answerC'] ?>&nbsp;
+D:<?=$value['answerD'] ?></p></li>
+</ul>
+<?php
+echo  $this->res2[$value["id"]];
+ }?>
+</div>
+</body>
+</html>

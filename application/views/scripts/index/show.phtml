@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="gb2312">
+</head>
+<body>
+<div>
+<form action="./chkanswer"  method="post"  id="answerform" >
+<?php
+$i=1;
+ foreach ($this->res as $value){?>
+<ul style="list-style: none;">
+<li><?=$i++?>题目:<?=$value['content'] ?><input type="hidden"  name="id[]"  value="<?=$value['id'] ?>"></li>
+<li><p>A:<input type="radio" name="answer<?=$value['id'] ?>" value="A"><?=$value['answerA'] ?>&nbsp;
+B:<input type="radio"  name="answer<?=$value['id'] ?>" value="B"><?=$value['answerB'] ?></p></li>
+<li><p>
+C:<input type="radio" name="answer<?=$value['id'] ?>" value="C"><?=$value['answerC'] ?>&nbsp;
+D:<input type="radio"  name="answer<?=$value['id'] ?>" value="D"><?=$value['answerD'] ?></p></li>
+</ul>
+<?php }?>
+<input type="submit" value="提交">
+</form>
+</div>
+</body>
+</html>

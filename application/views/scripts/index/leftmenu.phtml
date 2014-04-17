@@ -1,0 +1,38 @@
+<html>
+<HEAD>
+<META charset="gb2312"/>
+<link href="../public/css/index.css"  rel="stylesheet" media="screen" type="text/css" />
+<TITLE>
+</TITLE>
+</HEAD>
+<body>
+<form action="./admin/chk" method="post" id="form1">
+<ul class="ul">
+<li>题目类型:<select name="qtype" id="qtype">
+<?php foreach ($this->restype as $valuetype){ ?>
+<option value="<?=$valuetype['typeid'];?>"><?=$valuetype['typename'];?></option>
+<?php }?>
+</select></li>
+<li>
+所属课本:<select name="book" id="book">
+<option value="">--选择课本--</option>
+</select>
+</li>
+<li>
+所属章节:<select name="chapter" id="chapter">
+<option value="">--选择章节--</option></select>
+</li>
+<li>题目难度:<select id="class" name="class">
+<option value="">不限</option>
+<option value="1">困难</option>
+<option value="2">中等</option>
+<option value="3">简单</option>
+</select></li>
+<li><input type="button"  id="butt"  value="查询"></li>
+</ul>
+</form>
+<script type="text/javascript"  charset="gbk"  src="../js/Ajax.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showbook.js"></script>
+<script type="text/javascript"  charset="gbk"  src="../js/showchapter.js"></script>
+</body>
+</html>
