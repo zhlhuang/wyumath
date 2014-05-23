@@ -134,11 +134,9 @@ class IndexController extends BaseController
         $res=$papermodel->fetchRow("pid=".$paperid)->toArray();
         $this->view->paper=$res;
 
-        session_save_path("../sessions/");
-        session_start();
-        $member=$_SESSION['member'];
+        $member=$this->getloginmember();
        // var_dump($member);
-        if($member!=''){
+        if($member){
             $this->view->member=$member;
            $qid=$papermodel->getqid($paperid);//获取该试卷上的题目id
           $selectres=$questionmodel->selectquestion($qid);//将题目id传入 然后返回题目内容
@@ -148,7 +146,7 @@ class IndexController extends BaseController
           $this->view->selectres=$selectres;
           $this->view->fillres=$fillmodel->showfill($fillres);
         }else{
-            $this->toshow("你还没有登录");
+            $this->toshow("你还没有登录","http://202.192.242.1:8080/member/login.php");
         }
     }
     public function chkpaperAction(){

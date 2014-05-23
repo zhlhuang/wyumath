@@ -1,4 +1,5 @@
 <?php
+require_once APPLICATION_PATH.'/models/dede_member.php';
 class BaseController extends Zend_Controller_Action{
     //这是一个能初始化数据库的控制器，我们可以通过集成这个控制器来省略初始化这一项
     
@@ -18,10 +19,28 @@ class BaseController extends Zend_Controller_Action{
         $this->view->toback=$toback;
         $this->forward("show","globals");  
     }
+    public function getloginmember(){
+    	//这里是获取登录用户
+        $userid=$_COOKIE["DedeUserID"];
+        if($userid==NULL){
+        	return NULL;
+        }
+        $where="mid=".$userid;
+        $membermodel=new dede_member();
+        $member=$membermodel->fetchAll($where)->toArray();
+    	if($member){
+    		return $member["0"];
+    	}else {
+    		return NULL;
+    	}
+    }
 }
 
 //下面是我们需要的公共函数
 
+function getloginmember(){
+	//这里是获取登录用户
+}
 //这是筛选条件
 function towhere($typeid,$bookid,$chapterid,$class){
 	$where = '';
